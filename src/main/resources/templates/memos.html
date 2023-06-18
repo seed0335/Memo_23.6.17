@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- 아이디 검색-->
+<form action="/memos/search">
+    <label for="search">ID:</label>
+    <input type="text" id = "search" name="id">
+    <input type="submit" value="search">
+</form>
+
+<br>
+
+<!--삭제-->
+<form action="/memos/delete" method="post">
+    <label for="id">ID:</label>
+    <input type="text" id = "id" name="id"><br>
+
+    <label for="password1">PASSWORD:</label>
+    <input type="text" id = "password1" name="password"><br>
+
+    <input type="submit" value="delete">
+</form>
+<br>
+
+<form action="/memos" method="post">
+    <label for="name">name:</label><br>
+    <input type="text" id="name" name="name" placeholder="input name"><br>
+
+    <label for="password">password:</label><br>
+    <input type="password" id="password" name="password" placeholder="password"><br>
+
+
+    <label for="content">content:</label><br>
+    <textarea name="content" rows="10" cols="30" id="content"></textarea><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+<br>
+<br>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>CONTENT</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  th:each="memo : ${allMemoList}">
+        <td th:text="${memo.id}">id</td>
+        <td th:text="${memo.name}">name</td>
+        <td th:text="${memo.content}">content</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+
+</html>
